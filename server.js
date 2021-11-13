@@ -109,8 +109,7 @@ app.get('/api/users/:id/logs', async (req, res) => {
     user['count'] = user.log.length;
 
     for (const log of user.log) {
-      console.log(log.date)
-      console.log(typeof log.date)
+      log.date = String(log.date);
     }
 
     if (user) {      
