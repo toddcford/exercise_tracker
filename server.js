@@ -47,12 +47,12 @@ app.post('/api/users', async (req, res) => {
 app.post('/api/users/:_id/exercises', async (req, res) => {
   let { duration, description, date } = req.body;
   
-  // if (date === "" || date === undefined) {     
-  //   date = new Date();
-  // } else {
-  //   date = Date.parse(date)
-  //   date = new Date(date)
-  // }
+  if (date === "" || date === undefined) {     
+    date = new Date();
+  } else {
+    date = Date.parse(date)
+    date = new Date(date)
+  }
   date = date.toDateString()
   let { _id } = req.params;
   let new_exercise = {
@@ -107,10 +107,6 @@ app.get('/api/users/:id/logs', async (req, res) => {
     }
 
     user['count'] = user.log.length;
-
-    for (const log of user.log) {
-      log.date = String(log.date);
-    }
 
     if (user) {      
       res.json(user);      
