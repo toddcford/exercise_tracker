@@ -47,12 +47,12 @@ app.post('/api/users', async (req, res) => {
 app.post('/api/users/:_id/exercises', async (req, res) => {
   let { duration, description, date } = req.body;
   
-  if (date === "" || date === undefined) {     
-    date = new Date();
-  } else {
-    date = Date.parse(date)
-    date = new Date(date)
-  }
+  // if (date === "" || date === undefined) {     
+  //   date = new Date();
+  // } else {
+  //   date = Date.parse(date)
+  //   date = new Date(date)
+  // }
   date = date.toDateString()
   let { _id } = req.params;
   let new_exercise = {
