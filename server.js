@@ -78,7 +78,7 @@ app.post('/api/users/:_id/exercises', async (req, res) => {
   
 })
 
-app.get('/api/users/:id/logs/', async (req, res) => {
+app.get('/api/users/:id/logs', async (req, res) => {
   let { id } = req.params;
   let { from, to, limit } = req.query; 
 
