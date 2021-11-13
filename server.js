@@ -95,16 +95,16 @@ app.get('/api/users/:id/logs', async (req, res) => {
     console.log('user: ', user)    
     if (from !== undefined && to !== undefined) {
       
-      user.logs = user.logs.filter((log) => {
+      user.log = user.log.filter((log) => {
         return (Date.parse(log.date) >= from && Date.parse(log.date) <= to)
       })
     }
     if (limit !== undefined) {      
       limit = parseInt(limit)
-      user.logs = user.logs.slice(0,limit);
+      user.log = user.log.slice(0,limit);
     }
 
-    user['count'] = user.logs.length;
+    user['count'] = user.log.length;
 
     if (user) {      
       res.json(user);      
