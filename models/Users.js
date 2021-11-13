@@ -25,21 +25,6 @@ const UserSchema = new mongoose.Schema({
     }
   }],
 
-  // logs: {
-  //   description: {
-  //     type: String,
-  //     required: false
-  //   },
-  //   duration: {
-  //     type: Number,
-  //     required: false
-  //   },
-  //   date: {
-  //     type: String,
-  //     default: Date.now()
-  //   }
-  // },
-
   createdAt: {
     type: Date,
     default: Date.now()

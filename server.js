@@ -92,10 +92,15 @@ app.get('/api/users/:id/logs', async (req, res) => {
 
   try {
     let user = await Users.findOne({ '_id': id });
+    for (const log of user.log) {
+      console.log(log.date)
+      console.log(typeof log.date)
+    }
     console.log('user: ', user)    
     if (from !== undefined && to !== undefined) {
       
       user.log = user.log.filter((log) => {
+        
         return (Date.parse(log.date) >= from && Date.parse(log.date) <= to)
       })
     }
