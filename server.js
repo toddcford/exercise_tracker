@@ -63,8 +63,8 @@ app.post('/api/users/:_id/exercises', async (req, res) => {
   try {
     let user = await Users.findOne({'_id': _id })
     if (user) {
-      let { logs } = user;      
-      logs.push(new_exercise);
+      let { log } = user;      
+      log.push(new_exercise);
       await user.save();
       new_exercise['username'] = user.username;
       new_exercise['_id'] = _id;

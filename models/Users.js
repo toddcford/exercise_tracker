@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
     required: false
   },
 
-  logs: [{
+  log: [{
     description: {
       type: String,
       required: false
