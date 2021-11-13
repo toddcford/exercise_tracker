@@ -92,10 +92,7 @@ app.get('/api/users/:id/logs', async (req, res) => {
 
   try {
     let user = await Users.findOne({ '_id': id });
-    for (const log of user.log) {
-      console.log(log.date)
-      console.log(typeof log.date)
-    }
+
     console.log('user: ', user)    
     if (from !== undefined && to !== undefined) {
       
@@ -110,6 +107,11 @@ app.get('/api/users/:id/logs', async (req, res) => {
     }
 
     user['count'] = user.log.length;
+
+    for (const log of user.log) {
+      console.log(log.date)
+      console.log(typeof log.date)
+    }
 
     if (user) {      
       res.json(user);      
